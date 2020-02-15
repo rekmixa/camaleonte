@@ -1,0 +1,46 @@
+/* Настройки */
+
+$wa-body-text-color: $standart-color-1; // цвет текста
+$font-family: Geneva, Arial, Helvetica, sans-serif; // шрифт
+$font-size: 15px; // размер шрифта
+$letter-spacing: 1px;
+$standart-border-radius: 5px; // стандартный border-radius
+$wa-img-border: 1px solid darken($wa-color-light, 15%); // border к img.wa-bordered
+$wa-img-border-radius: 15px; // border-radius .wa-img-rounded
+$standart-darken: 10%; // затемнение бордеров кнопок/дивов и тайтлов
+$standart-darken-on-hover: 15%; // затемнение ссылок и кнопок при наведении
+
+$wa-footer-font-size: 14px; // размер шрифта .wa-footer
+$wa-footer-bg: $wa-footer-color; // цвет фона .wa-footer
+$wa-footer-text: $standart-color-1; // цвет текста .wa-footer
+$wa-footer-b-color: darken($wa-footer-bg, 10%); // цвет бордера .wa-footer
+$wa-footer-b-top: 3px solid $wa-footer-b-color; // border-top
+
+$wa-nav-menu-default-main-color: darken($wa-color-dark, 5%); // основной цвет .wa-nav-menu
+$wa-nav-menu-default-text-color: $standart-color-1; // цвет текста .wa-nav-menu
+
+$wa-dropdown-default-main-color: $wa-color-dark; // основной цвет dropdown
+$wa-dropdown-default-text-color: $standart-color-1; // цвет текста dropdown
+
+$wa-btn-default-text-color: $standart-color-1; // цвет текста button
+
+$wa-div-default-main-color: $wa-color-light; // основной цвет div
+$wa-div-default-text-color: $standart-color-2; // цвет текста div
+
+$wa-link-default-main-color: $wa-color-light; // основной цвет div
+$wa-link-default-text-color: $standart-color-2; // цвет текста div
+
+$wa-form-padding: 6px; // padding для элементов форм
+$wa-form-padding-tiny: $wa-form-padding / 2; // уменьшенный в 2 раза padding
+$wa-form-default-main-color: $wa-color-light; // основной цвет элементов форм
+$wa-form-default-text-color: $standart-color-2; // основной цвет текста элементов форм
+
+$wa-default-slidebar-bg: $wa-color-light; // фон slidebar
+
+$wa-pagination-color: $standart-color-2; // цвет .wa-pagination
+
+$wa-counter-color: $standart-color-2; // цвет .wa-counter
+
+$wa-default-scrollbar-bg: darken($wa-body-bg, 5%); // фон скроллбара
+$wa-default-scrollbar-color: darken($wa-color-light, 15%); // цвет скроллбара
+$wa-default-scrollbar-hover-color: darken($wa-default-scrollbar-color, 10%); // цвет скроллбара (hover)

@@ -1,0 +1,36 @@
+/* Light Theme */
+
+@import '../main/colors'; // подключаем набор цветов
+
+$wa-theme-color: $wa-color-light; // основной цвет темы
+$wa-theme-text-color: $standart-color-2; // цвет текста темы
+
+/* Настройки */
+
+@import '../main/settings-theme';
+
+.wa-slider { // slidebar
+    background-color: darken($wa-color-dark, 10%);
+}
+
+@media screen and (max-width: 765px) {
+    .wa-nav-link {
+        a {
+            color: $standart-color-1 !important;
+        }
+    }
+}
+
+@media screen and (min-width: 766px) {
+    .wa-nav-link {
+        a {
+            color: $standart-color-2 !important;
+        }
+    }
+}
+
+$wa-btn-default-text-color: $standart-color-2; // основной цвет button
+
+/* Подключаем стиль */
+
+@import '../main/template-theme';

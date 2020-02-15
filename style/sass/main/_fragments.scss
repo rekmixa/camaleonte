@@ -1,0 +1,98 @@
+%wa-transition {
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+@mixin standart-borders($border-color, $important: 0) {
+    @if $important == 1 {
+        border-top: 0 !important;
+        border-left: 0 !important;
+        border-right: 3px solid $border-color !important;
+        border-bottom: 3px solid $border-color !important;
+    } @else {
+        border-top: 0;
+        border-left: 0;
+        border-right: 3px solid $border-color;
+        border-bottom: 3px solid $border-color;
+    }
+}
+
+@mixin wa-theme-switch($main-color, $text-color) {
+    display: inline-block !important;
+    a {
+        background-color: darken($main-color, 10%) !important;
+        color: $text-color !important;
+    }
+    a:hover, a:active, a.active {
+        background-color: darken($main-color, 15%) !important;
+    }
+}
+
+@mixin nav-menu-theme($main-color, $text-color) {
+    color: $text-color !important;
+    a {
+        color: $text-color !important;
+    }
+    .wa-sm-menu-div {
+        background-color: $main-color !important;
+    }
+    .wa-nav-link:hover, .wa-nav-link:active, .wa-nav-link.active {
+        background-color: darken($main-color, 10%) !important;
+    }
+}
+
+@mixin dropdown-theme($main-color, $text-color) {
+    background-color: darken($main-color, 5%) !important;
+    a {
+        color: $text-color !important;
+    }
+    a:hover, a.active {
+        background-color: darken($main-color, 10%) !important;
+    }
+}
+
+@mixin wa-div-theme($main-color, $text-color) {
+    background-color: lighten($main-color, 5%) !important;
+    color: $text-color !important;
+    @include standart-borders(darken($main-color, $standart-darken), 1);
+}
+
+@mixin wa-div-title-theme($main-color, $text-color) {
+    background-color: $main-color !important;
+    color: $text-color !important;
+    @include standart-borders(darken($main-color, $standart-darken), 1);
+}
+
+@mixin wa-link-theme($main-color, $text-color) {
+    background-color: lighten($main-color, 5%) !important;
+    color: $text-color !important;
+    @include standart-borders(darken($main-color, $standart-darken), 1);
+}
+
+@mixin wa-link-hover-theme($main-color, $text-color) {
+    background-color: darken($main-color, $standart-darken-on-hover) !important;
+    @include standart-borders(darken($main-color, $standart-darken + 15%), 1);
+}
+
+@mixin btn-theme($main-color, $text-color) {
+    background-color: $main-color !important;
+    color: $text-color !important;
+    @include standart-borders(darken($main-color, $standart-darken + 5%), 1);
+}
+
+@mixin btn-theme-hover($main-color) {
+    background-color: darken($main-color, $standart-darken-on-hover) !important;
+    @include standart-borders(darken($main-color, $standart-darken + 15%), 1);
+}
+
+@mixin counter($main-color) {
+    color: $main-color !important;
+    border: 1px solid $main-color !important;
+}

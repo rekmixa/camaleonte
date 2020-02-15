@@ -1,0 +1,13 @@
+/* Настройки */
+
+$wa-header-bg: $wa-theme-color; // цвет фона .wa-header
+$wa-header-b-bottom-color: darken($wa-header-bg, 10%); // цвет бордера .wa-header
+$wa-header-b-bottom: 3px solid $wa-header-b-bottom-color; // border-bottom
+$wa-bar-color: darken($wa-header-bg, 35%); // цвет fa-bar иконки
+$wa-nav-link-color: $wa-theme-text-color; // цвет .wa-nav-ling
+$wa-nav-link-color-hover: darken($wa-header-bg, 10%); // .nav-link:hover
+
+$wa-div-title-default-main-color: $wa-theme-color; // основной цвет div
+$wa-div-title-default-text-color: $wa-theme-text-color; // цвет текста div
+
+$wa-btn-default-main-color: darken($wa-theme-color, 5%); // основной цвет button

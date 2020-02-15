@@ -1,0 +1,93 @@
+/* Стиль кнопок переключения темы */
+
+.wa-theme-switch-container {
+    display: grid;
+}
+
+.wa-theme-switch-row {
+    display: grid;
+    grid-template-columns: 35px 35px 35px 35px;
+    margin: auto;
+}
+
+.wa-theme-switch {
+    display: inline-block !important;
+    a {
+        vertical-align: top;
+        padding-top: 3px !important;
+        padding-bottom: 3px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        margin-bottom: 4px !important;
+        margin-left: 1px !important;
+        margin-right: 1px !important;
+        width: 21px;
+        height: 25px;
+        display: inline-block !important;
+        @include border-radius($standart-border-radius);
+    }
+}
+
+.wa-theme-switch.wa-light { // light
+    @include wa-theme-switch($wa-color-light, $wa-color-dark);
+}
+
+.wa-theme-switch.wa-dark { // dark
+    @include wa-theme-switch($wa-color-dark, $wa-color-light);
+}
+
+.wa-theme-switch.wa-red { // red
+    @include wa-theme-switch($wa-color-red, $wa-color-light);
+}
+
+.wa-theme-switch.wa-green { // green
+    @include wa-theme-switch($wa-color-green, $wa-color-light);
+}
+
+.wa-theme-switch.wa-blue { // blue
+    @include wa-theme-switch($wa-color-blue, $wa-color-light);
+}
+
+.wa-theme-switch.wa-orange { // orange
+    @include wa-theme-switch($wa-color-orange, $wa-color-light);
+}
+
+.wa-theme-switch.wa-pink { // pink
+    @include wa-theme-switch($wa-color-pink, $wa-color-light);
+}
+
+.wa-theme-switch.wa-purple { // purple
+    @include wa-theme-switch($wa-color-purple, $wa-color-light);
+}
+
+.wa-theme-switch.wa-brown { // brown
+    @include wa-theme-switch($wa-color-brown, $wa-color-light);
+}
+
+.wa-theme-switch.wa-jade { // jade
+    @include wa-theme-switch($wa-color-jade, $wa-color-light);
+}
+
+.wa-theme-switch.wa-yellow { // yellow
+    @include wa-theme-switch($wa-color-yellow, $wa-color-light);
+}
+
+.wa-theme-switch.wa-deepskyblue { // deepskyblue
+    @include wa-theme-switch($wa-color-deepskyblue, $wa-color-light);
+}
+
+.wa-theme-switch.wa-khaki { // khaki
+    @include wa-theme-switch($wa-color-khaki, $wa-color-light);
+}
+
+.wa-theme-switch.wa-amethyst { // amethyst
+    @include wa-theme-switch($wa-color-amethyst, $wa-color-light);
+}
+
+.wa-theme-switch.wa-periwinkle { // periwinkle
+    @include wa-theme-switch($wa-color-periwinkle, $wa-color-dark);
+}
+
+.wa-theme-switch.wa-tomato { // tomato
+    @include wa-theme-switch($wa-color-tomato, $wa-color-light);
+}

@@ -1,0 +1,34 @@
+/* Тёмная тема */
+
+$wa-links-color: #9a9a9a; // станартный цвет ссылок
+
+$wa-body-bg: darken($wa-color-dark, 3%); // цвет фона страницы
+$wa-img-border: 1px solid darken($wa-color-dark, 15%); // border к img.wa-bordered
+$standart-darken: 5%; // затемнение бордеров кнопок/дивов и тайтлов
+$standart-darken-on-hover: 5%; // затемнение ссылок и кнопок при наведении
+
+$wa-footer-bg: darken($wa-footer-color, 15%); // цвет фона .wa-footer
+$wa-footer-b-color: darken($wa-footer-bg, 10%); // цвет бордера .wa-footer
+$wa-footer-b-top: 3px solid $wa-footer-b-color; // border-top
+
+$wa-div-title-default-main-color: darken($wa-color-dark, 10%); // основной цвет div
+$wa-div-title-default-text-color: $standart-color-1; // цвет текста div
+
+$wa-div-default-main-color: darken($wa-color-dark, 4%); // основной цвет div
+$wa-div-default-text-color: $standart-color-1; // цвет текста div
+
+$wa-link-default-main-color: darken($wa-color-dark, 5%); // основной цвет div
+$wa-link-default-text-color: $standart-color-1; // цвет текста div
+
+$wa-form-padding: 6px; // padding для элементов форм
+$wa-form-padding-tiny: $wa-form-padding / 2; // уменьшенный в 2 раза padding
+$wa-form-default-main-color: $wa-color-dark; // основной цвет элементов форм
+$wa-form-default-text-color: $standart-color-1; // основной цвет текста элементов форм
+
+$wa-pagination-color: $standart-color-1; // цвет .wa-pagination
+
+$wa-counter-color: $standart-color-1; // цвет .wa-counter
+
+$wa-default-scrollbar-bg: darken($wa-body-bg, 5%); // фон скроллбара
+$wa-default-scrollbar-color: darken($wa-color-dark, 15%); // цвет скроллбара
+$wa-default-scrollbar-hover-color: darken($wa-default-scrollbar-color, 10%); // цвет скроллбара (hover)

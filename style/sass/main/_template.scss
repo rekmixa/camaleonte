@@ -1,0 +1,2201 @@
+@import 'grid';
+@import 'switches';
+
+/* стили */
+
+body {
+    background-color: $wa-body-bg;
+    font-family: $font-family;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+    margin: 0;
+}
+
+a {
+    color: $wa-links-color;
+    text-decoration: none;
+}
+
+p.wa-nested {
+    margin-left: 16px;
+}
+
+// content
+
+.wa-content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+// header
+
+.wa-header {
+    height: 50px;
+    vertical-align: middle;
+    padding: 16px;
+    padding-left: 20px;
+    margin-bottom: 4px;
+    line-height: 25px;
+}
+
+.wa-h-fixed {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+}
+.wa-margin-for-fixed {
+    margin-top: 89px;
+}
+
+.wa-h-logo {
+    display: inline-block;
+    height: 37px;
+    text-align: center;
+    padding-top: 5px;
+    img {
+        height: 45px;
+    }
+}
+
+.wa-h-link-menu {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 31px;
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 6px;
+    @include border-radius($standart-border-radius);
+}
+
+// footer
+
+.wa-footer {
+    background-color: $wa-footer-bg;
+    font-size: $wa-footer-font-size;
+    color: $wa-footer-text;
+    vertical-align: middle;
+    padding: 16px;
+    line-height: 25px;
+    min-height: 50px;
+    border-top: $wa-footer-b-top;
+}
+
+.wa-f-container {
+    width: 100%;
+}
+
+// Pagination
+
+.wa-pagination {
+    display: block;
+    padding: 8px;
+    padding-top: 8px;
+    a, span {
+        overflow-y: auto;
+        display: inline-block;
+        margin-top: 4px;
+        padding: 6px;
+        padding-left: 8px;
+        padding-right: 8px;
+        @include border-radius($standart-border-radius);
+    }
+    span.wa-pg-space {
+        border: 0 !important;
+        background: none !important;
+    }
+    span.wa-pg-current {
+        font-weight: bold;
+    }
+}
+
+// Адаптивность
+
+@media screen and (max-width: 765px) { // small screen
+    // default menu
+    .wa-nav-menu {
+        position: absolute;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        display: none;
+        color: $wa-nav-menu-default-text-color;
+        a {
+            color: $wa-nav-menu-default-text-color;
+        }
+        .wa-dropdown {
+            position: relative;
+            display: block !important;
+            width: 100%;
+            .wa-dropdown-content {
+                background-color: darken($wa-nav-menu-default-main-color, 2%);
+                position: inherit !important;
+                z-index: 1;
+                display: none;
+                text-align: left !important;
+                width: inherit !important;
+                overflow-y: visible !important;
+                max-height: none !important;
+                padding: 0;
+                @include border-radius(0);
+                a {
+                    margin-bottom: 0;
+                    padding: 4px;
+                }
+                a:hover, a:active, a.active {
+                    @include border-radius(0);
+                }
+            }
+            .wa-dropdown-content::-webkit-scrollbar {
+                display: none !important;
+            }
+        }
+        .wa-sm-menu-div {
+            background-color: $wa-nav-menu-default-main-color;
+            position: relative;
+        }
+        .wa-nav-link {
+            padding: 8px;
+            margin-top: 0;
+        }
+        .wa-nav-link:hover, .wa-nav-link:active, .wa-nav-link.active {
+            background-color: darken($wa-nav-menu-default-main-color, 10%);
+        }
+    }
+    .wa-nav-menu::-webkit-scrollbar-track {
+        background-color: $wa-nav-menu-default-main-color;
+    }
+    .wa-nav-menu::-webkit-scrollbar-thumb {
+        background-color: darken($wa-nav-menu-default-main-color, 10%);
+    }
+    .wa-nav-menu::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-nav-menu-default-main-color, 15%);
+    }
+    // light menu
+    .wa-nav-menu.wa-nav-menu-light {
+        @include nav-menu-theme($wa-color-light, $standart-color-2);
+    }
+    .wa-nav-menu.wa-nav-menu-light::-webkit-scrollbar-track {
+        background-color: $wa-color-light;
+    }
+    .wa-nav-menu.wa-nav-menu-light::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-light, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-light::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-light, 15%);
+    }
+    // dark menu
+    .wa-nav-menu.wa-nav-menu-dark {
+        @include nav-menu-theme($wa-color-dark, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-dark::-webkit-scrollbar-track {
+        background-color: $wa-color-dark;
+    }
+    .wa-nav-menu.wa-nav-menu-dark::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-dark, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-dark::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-dark, 15%);
+    }
+    // red menu
+    .wa-nav-menu.wa-nav-menu-red {
+        @include nav-menu-theme($wa-color-red, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-red::-webkit-scrollbar-track {
+        background-color: $wa-color-red;
+    }
+    .wa-nav-menu.wa-nav-menu-red::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-red, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-red::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-red, 15%);
+    }
+    // green menu
+    .wa-nav-menu.wa-nav-menu-green {
+        @include nav-menu-theme($wa-color-green, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-green::-webkit-scrollbar-track {
+        background-color: $wa-color-green;
+    }
+    .wa-nav-menu.wa-nav-menu-green::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-green, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-green::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-green, 15%);
+    }
+    // blue menu
+    .wa-nav-menu.wa-nav-menu-blue {
+        @include nav-menu-theme($wa-color-blue, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-blue::-webkit-scrollbar-track {
+        background-color: $wa-color-blue;
+    }
+    .wa-nav-menu.wa-nav-menu-blue::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-blue, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-blue::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-blue, 15%);
+    }
+    // orange menu
+    .wa-nav-menu.wa-nav-menu-orange {
+        @include nav-menu-theme($wa-color-orange, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-orange::-webkit-scrollbar-track {
+        background-color: $wa-color-orange;
+    }
+    .wa-nav-menu.wa-nav-menu-orange::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-orange, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-orange::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-orange, 15%);
+    }
+    // pink menu
+    .wa-nav-menu.wa-nav-menu-pink {
+        @include nav-menu-theme($wa-color-pink, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-pink::-webkit-scrollbar-track {
+        background-color: $wa-color-pink;
+    }
+    .wa-nav-menu.wa-nav-menu-pink::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-pink, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-pink::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-pink, 15%);
+    }
+    // purple menu
+    .wa-nav-menu.wa-nav-menu-purple {
+        @include nav-menu-theme($wa-color-purple, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-purple::-webkit-scrollbar-track {
+        background-color: $wa-color-purple;
+    }
+    .wa-nav-menu.wa-nav-menu-purple::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-purple, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-purple::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-purple, 15%);
+    }
+    // brown menu
+    .wa-nav-menu.wa-nav-menu-brown {
+        @include nav-menu-theme($wa-color-brown, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-brown::-webkit-scrollbar-track {
+        background-color: $wa-color-brown;
+    }
+    .wa-nav-menu.wa-nav-menu-brown::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-brown, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-brown::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-brown, 15%);
+    }
+    // jade menu
+    .wa-nav-menu.wa-nav-menu-jade {
+        @include nav-menu-theme($wa-color-jade, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-bjade::-webkit-scrollbar-track {
+        background-color: $wa-color-jade;
+    }
+    .wa-nav-menu.wa-nav-menu-jade::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-jade, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-jade::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-jade, 15%);
+    }
+    // yellow menu
+    .wa-nav-menu.wa-nav-menu-yellow {
+        @include nav-menu-theme($wa-color-yellow, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-yellow::-webkit-scrollbar-track {
+        background-color: $wa-color-yellow;
+    }
+    .wa-nav-menu.wa-nav-menu-yellow::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-yellow, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-yellow::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-yellow, 15%);
+    }
+    // deepskyblue menu
+    .wa-nav-menu.wa-nav-menu-deepskyblue {
+        @include nav-menu-theme($wa-color-deepskyblue, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-deepskyblue::-webkit-scrollbar-track {
+        background-color: $wa-color-deepskyblue;
+    }
+    .wa-nav-menu.wa-nav-menu-deepskyblue::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-deepskyblue, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-deepskyblue::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-deepskyblue, 15%);
+    }
+    // khaki menu
+    .wa-nav-menu.wa-nav-menu-khaki {
+        @include nav-menu-theme($wa-color-khaki, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-khaki::-webkit-scrollbar-track {
+        background-color: $wa-color-khaki;
+    }
+    .wa-nav-menu.wa-nav-menu-khaki::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-khaki, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-khaki::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-khaki, 15%);
+    }
+    // amethyst menu
+    .wa-nav-menu.wa-nav-menu-amethyst {
+        @include nav-menu-theme($wa-color-amethyst, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-amethyst::-webkit-scrollbar-track {
+        background-color: $wa-color-amethyst;
+    }
+    .wa-nav-menu.wa-nav-menu-amethyst::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-amethyst, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-amethyst::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-amethyst, 15%);
+    }
+    // periwinkle menu
+    .wa-nav-menu.wa-nav-menu-periwinkle {
+        @include nav-menu-theme($wa-color-periwinkle, $standart-color-2);
+    }
+    .wa-nav-menu.wa-nav-menu-periwinkle::-webkit-scrollbar-track {
+        background-color: $wa-color-periwinkle;
+    }
+    .wa-nav-menu.wa-nav-menu-periwinkle::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-periwinkle, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-periwinkle::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-periwinkle, 15%);
+    }
+    // tomato menu
+    .wa-nav-menu.wa-nav-menu-tomato {
+        @include nav-menu-theme($wa-color-tomato, $standart-color-1);
+    }
+    .wa-nav-menu.wa-nav-menu-tomato::-webkit-scrollbar-track {
+        background-color: $wa-color-tomato;
+    }
+    .wa-nav-menu.wa-nav-menu-tomato::-webkit-scrollbar-thumb {
+        background-color: darken($wa-color-tomato, 10%);
+    }
+    .wa-nav-menu.wa-nav-menu-tomato::-webkit-scrollbar-thumb:hover {
+        background-color: darken($wa-color-tomato, 15%);
+    }
+}
+
+@media screen and (min-width: 766px) { // medium screen
+    .wa-h-link-menu {
+        display: none;
+    }
+    .wa-nav-menu {
+        display: block !important;
+        height: auto !important;
+        float: right;
+        padding-top: 4px;
+        overflow-y: visible !important;
+        max-height: none !important;
+    }
+    .wa-nav-menu::-webkit-scrollbar-track {
+        display: none !important;
+    }
+    .wa-nav-link {
+        display: inline-block;
+        height: 31px;
+        text-align: center;
+        padding-top: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-top: 6px;
+        margin-bottom: 0;
+        @include border-radius($standart-border-radius);
+    }
+}
+
+// dropdown default
+.wa-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.wa-dropdown-content {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    text-align: center;
+    background-color: darken($wa-dropdown-default-main-color, 5%);
+    padding: 4px;
+    padding-bottom: 0;
+    min-width: 100%;
+    @include border-radius($standart-border-radius);
+    a, .wa-dd-item {
+        display: block;
+        color: $wa-dropdown-default-text-color !important;
+        padding: 4px;
+        margin-bottom: 4px;
+        @include border-radius($standart-border-radius);
+    }
+    a:hover, a.active {
+        background-color: darken($wa-dropdown-default-main-color, 10%);
+    }
+}
+.wa-dropdown-content.right {
+    right: 0;
+}
+.wa-dropdown-content.left {
+    left: 0;
+}
+.wa-dropdown-content.scroll::-webkit-scrollbar-track {
+    background-color: darken($wa-dropdown-default-main-color, 5%);
+    border-radius: 0 5px 5px 0;
+}
+.wa-dropdown-content.scroll::-webkit-scrollbar-thumb {
+    background-color: darken($wa-dropdown-default-main-color, 10%);
+}
+.wa-dropdown-content.scroll::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-dropdown-default-main-color, 15%);
+}
+i.wa-dropdown-caret {
+    margin-left: 4px;
+}
+@media screen and (min-width: 766px) {
+    .wa-dropdown.wa-show-on-hover:hover > .wa-dropdown-content {
+        display: block !important;
+    }
+}
+
+// dropdown light
+.wa-dropdown-content.wa-light {
+    @include dropdown-theme($wa-color-light, $standart-color-2);
+}
+.wa-dropdown-content.scroll.wa-light::-webkit-scrollbar-track {
+    background-color: darken($wa-color-light, 5%);
+}
+.wa-dropdown-content.scroll.wa-light::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-light, 10%);
+}
+.wa-dropdown-content.scroll.wa-light::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-light, 15%);
+}
+
+// dropdown dark
+.wa-dropdown-content.wa-dark {
+    @include dropdown-theme($wa-color-dark, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-dark::-webkit-scrollbar-track {
+    background-color: darken($wa-color-dark, 5%);
+}
+.wa-dropdown-content.scroll.wa-dark::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-dark, 10%);
+}
+.wa-dropdown-content.scroll.wa-dark::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-dark, 15%);
+}
+
+// dropdown red
+.wa-dropdown-content.wa-red {
+    @include dropdown-theme($wa-color-red, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-red::-webkit-scrollbar-track {
+    background-color: darken($wa-color-red, 5%);
+}
+.wa-dropdown-content.scroll.wa-red::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-red, 10%);
+}
+.wa-dropdown-content.scroll.wa-red::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-red, 15%);
+}
+
+// dropdown green
+.wa-dropdown-content.wa-green {
+    @include dropdown-theme($wa-color-green, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-green::-webkit-scrollbar-track {
+    background-color: darken($wa-color-green, 5%);
+}
+.wa-dropdown-content.scroll.wa-green::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-green, 10%);
+}
+.wa-dropdown-content.scroll.wa-green::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-green, 15%);
+}
+
+// dropdown blue
+.wa-dropdown-content.wa-blue {
+    @include dropdown-theme($wa-color-blue, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-blue::-webkit-scrollbar-track {
+    background-color: darken($wa-color-blue, 5%);
+}
+.wa-dropdown-content.scroll.wa-blue::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-blue, 10%);
+}
+.wa-dropdown-content.scroll.wa-blue::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-blue, 15%);
+}
+
+// dropdown orange
+.wa-dropdown-content.wa-orange {
+    @include dropdown-theme($wa-color-orange, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-orange::-webkit-scrollbar-track {
+    background-color: darken($wa-color-orange, 5%);
+}
+.wa-dropdown-content.scroll.wa-orange::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-orange, 10%);
+}
+.wa-dropdown-content.scroll.wa-orange::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-orange, 15%);
+}
+
+// dropdown pink
+.wa-dropdown-content.wa-pink {
+    @include dropdown-theme($wa-color-pink, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-pink::-webkit-scrollbar-track {
+    background-color: darken($wa-color-pink, 5%);
+}
+.wa-dropdown-content.scroll.wa-pink::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-pink, 10%);
+}
+.wa-dropdown-content.scroll.wa-pink::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-pink, 15%);
+}
+
+// dropdown purple
+.wa-dropdown-content.wa-purple {
+    @include dropdown-theme($wa-color-purple, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-purple::-webkit-scrollbar-track {
+    background-color: darken($wa-color-purple, 5%);
+}
+.wa-dropdown-content.scroll.wa-purple::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-purple, 10%);
+}
+.wa-dropdown-content.scroll.wa-purple::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-purple, 15%);
+}
+
+// dropdown brown
+.wa-dropdown-content.wa-brown {
+    @include dropdown-theme($wa-color-brown, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-brown::-webkit-scrollbar-track {
+    background-color: darken($wa-color-brown, 5%);
+}
+.wa-dropdown-content.scroll.wa-brown::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-brown, 10%);
+}
+.wa-dropdown-content.scroll.wa-brown::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-brown, 15%);
+}
+
+// dropdown jade
+.wa-dropdown-content.wa-jade {
+    @include dropdown-theme($wa-color-jade, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-jade::-webkit-scrollbar-track {
+    background-color: darken($wa-color-jade, 5%);
+}
+.wa-dropdown-content.scroll.wa-jade::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-jade, 10%);
+}
+.wa-dropdown-content.scroll.wa-jade::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-jade, 15%);
+}
+
+// dropdown yellow
+.wa-dropdown-content.wa-yellow {
+    @include dropdown-theme($wa-color-yellow, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-yellow::-webkit-scrollbar-track {
+    background-color: darken($wa-color-yellow, 5%);
+}
+.wa-dropdown-content.scroll.wa-yellow::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-yellow, 10%);
+}
+.wa-dropdown-content.scroll.wa-yellow::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-yellow, 15%);
+}
+
+// dropdown deepskyblue
+.wa-dropdown-content.wa-deepskyblue {
+    @include dropdown-theme($wa-color-deepskyblue, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-deepskyblue::-webkit-scrollbar-track {
+    background-color: darken($wa-color-deepskyblue, 5%);
+}
+.wa-dropdown-content.scroll.wa-deepskyblue::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-deepskyblue, 10%);
+}
+.wa-dropdown-content.scroll.wa-deepskyblue::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-deepskyblue, 15%);
+}
+
+// dropdown khaki
+.wa-dropdown-content.wa-khaki{
+    @include dropdown-theme($wa-color-khaki, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-khaki::-webkit-scrollbar-track {
+    background-color: darken($wa-color-khaki, 5%);
+}
+.wa-dropdown-content.scroll.wa-khaki::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-khaki, 10%);
+}
+.wa-dropdown-content.scroll.wa-khaki::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-khaki, 15%);
+}
+
+// dropdown amethyst
+.wa-dropdown-content.wa-amethyst {
+    @include dropdown-theme($wa-color-amethyst, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-amethyst::-webkit-scrollbar-track {
+    background-color: darken($wa-color-amethyst, 5%);
+}
+.wa-dropdown-content.scroll.wa-amethyst::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-amethyst, 10%);
+}
+.wa-dropdown-content.scroll.wa-amethyst::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-amethyst, 15%);
+}
+
+// dropdown periwinkle
+.wa-dropdown-content.wa-periwinkle {
+    @include dropdown-theme($wa-color-periwinkle, $standart-color-2);
+}
+.wa-dropdown-content.scroll.wa-periwinkle::-webkit-scrollbar-track {
+    background-color: darken($wa-color-periwinkle, 5%);
+}
+.wa-dropdown-content.scroll.wa-periwinkle::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-periwinkle, 10%);
+}
+.wa-dropdown-content.scroll.wa-periwinkle::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-periwinkle, 15%);
+}
+
+// dropdown tomato
+.wa-dropdown-content.wa-tomato {
+    @include dropdown-theme($wa-color-tomato, $standart-color-1);
+}
+.wa-dropdown-content.scroll.wa-tomato::-webkit-scrollbar-track {
+    background-color: darken($wa-color-tomato, 5%);
+}
+.wa-dropdown-content.scroll.wa-tomato::-webkit-scrollbar-thumb {
+    background-color: darken($wa-color-tomato, 10%);
+}
+.wa-dropdown-content.scroll.wa-tomato::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-tomato, 15%);
+}
+
+// Form elements
+input[type=text], input[type=number], input[type=email], input[type=password], textarea, select {
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: $wa-form-default-main-color;
+    color: $wa-form-default-text-color;
+    display: inline-block;
+    padding: $wa-form-padding;
+    margin: 4px;
+    margin-left: 2px;
+    margin-right: 4px;
+    border-top: 1px solid darken($wa-form-default-main-color, 10%);
+    border-left: 1px solid darken($wa-form-default-main-color, 10%);
+    border-right: 3px solid darken($wa-form-default-main-color, 10%);
+    border-bottom: 3px solid darken($wa-form-default-main-color, 10%);
+    @include border-radius($standart-border-radius);
+}
+
+// The switch - the box around the slider
+.wa-switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+  @extend %wa-transition;
+}
+.wa-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.wa-slider-text {
+    cursor: pointer;
+}
+.wa-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 1px;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background-color: darken($wa-default-slidebar-bg, 10%);
+}
+.wa-slider.for-dropdown {
+    top: 3px;
+    bottom: -3px;
+}
+.wa-slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+}
+input:checked + .wa-slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+// Rounded sliders
+.wa-slider.round {
+  border-radius: 34px;
+}
+.wa-slider.round:before {
+  border-radius: 50%;
+}
+.wa-slider.wa-slider-light:before { // light
+    background-color: $wa-color-light !important;
+}
+.wa-slider.wa-slider-dark:before { // dark
+    background-color: $wa-color-dark !important;
+}
+.wa-slider.wa-slider-red:before { // red
+    background-color: $wa-color-red !important;
+}
+.wa-slider.wa-slider-green:before { // green
+    background-color: $wa-color-green !important;
+}
+.wa-slider.wa-slider-blue:before { // blue
+    background-color: $wa-color-blue !important;
+}
+.wa-slider.wa-slider-orange:before { // orange
+    background-color: $wa-color-orange !important;
+}
+.wa-slider.wa-slider-pink:before { // pink
+    background-color: $wa-color-pink !important;
+}
+.wa-slider.wa-slider-purple:before { // purple
+    background-color: $wa-color-purple !important;
+}
+.wa-slider.wa-slider-brown:before { // brown
+    background-color: $wa-color-brown !important;
+}
+.wa-slider.wa-slider-jade:before { // jade
+    background-color: $wa-color-jade !important;
+}
+.wa-slider.wa-slider-yellow:before { // yellow
+    background-color: $wa-color-yellow !important;
+}
+.wa-slider.wa-slider-deepskyblue:before { // deepskyblue
+    background-color: $wa-color-deepskyblue !important;
+}
+.wa-slider.wa-slider-khaki:before { // khaki
+    background-color: $wa-color-khaki !important;
+}
+.wa-slider.wa-slider-amethyst:before { // amethyst
+    background-color: $wa-color-amethyst !important;
+}
+.wa-slider.wa-slider-periwinkle:before { // periwinkle
+    background-color: $wa-color-periwinkle !important;
+}
+.wa-slider.wa-slider-tomato:before { // tomato
+    background-color: $wa-color-tomato !important;
+}
+
+// button default
+button, input[type=submit], a.wa-btn {
+    display: inline-block;
+    padding: $wa-form-padding;
+    margin: 4px;
+    margin-left: 2px;
+    margin-right: 4px;
+    color: $wa-btn-default-text-color;
+    @include border-radius($standart-border-radius);
+}
+.p-tiny {
+    padding-top: $wa-form-padding-tiny !important;
+    padding-bottom: $wa-form-padding-tiny !important;
+}
+
+// button light
+.wa-btn-light {
+    @include btn-theme($wa-color-light, $standart-color-2);
+}
+.wa-btn-light:hover {
+    @include btn-theme-hover($wa-color-light);
+}
+
+// button dark
+.wa-btn-dark {
+    @include btn-theme($wa-color-dark, $standart-color-1);
+}
+.wa-btn-dark:hover {
+    @include btn-theme-hover($wa-color-dark);
+}
+
+// button red
+.wa-btn-red {
+    @include btn-theme($wa-color-red, $standart-color-1);
+}
+.wa-btn-red:hover {
+    @include btn-theme-hover($wa-color-red);
+}
+
+// button green
+.wa-btn-green {
+    @include btn-theme($wa-color-green, $standart-color-1);
+}
+.wa-btn-green:hover {
+    @include btn-theme-hover($wa-color-green);
+}
+
+// button blue
+.wa-btn-blue {
+    @include btn-theme($wa-color-blue, $standart-color-1);
+}
+.wa-btn-blue:hover {
+    @include btn-theme-hover($wa-color-blue);
+}
+
+// button orange
+.wa-btn-orange {
+    @include btn-theme($wa-color-orange, $standart-color-1);
+}
+.wa-btn-orange:hover {
+    @include btn-theme-hover($wa-color-orange);
+}
+
+// button pink
+.wa-btn-pink {
+    @include btn-theme($wa-color-pink, $standart-color-1);
+}
+.wa-btn-pink:hover {
+    @include btn-theme-hover($wa-color-pink);
+}
+
+// button purple
+.wa-btn-purple {
+    @include btn-theme($wa-color-purple, $standart-color-1);
+}
+.wa-btn-purple:hover {
+    @include btn-theme-hover($wa-color-purple);
+}
+
+// button brown
+.wa-btn-brown {
+    @include btn-theme($wa-color-brown, $standart-color-1);
+}
+.wa-btn-brown:hover {
+    @include btn-theme-hover($wa-color-brown);
+}
+
+// button jade
+.wa-btn-jade {
+    @include btn-theme($wa-color-jade, $standart-color-1);
+}
+.wa-btn-jade:hover {
+    @include btn-theme-hover($wa-color-jade);
+}
+
+// button yellow
+.wa-btn-yellow {
+    @include btn-theme($wa-color-yellow, $standart-color-1);
+}
+.wa-btn-yellow:hover {
+    @include btn-theme-hover($wa-color-yellow);
+}
+
+// button deepskyblue
+.wa-btn-deepskyblue {
+    @include btn-theme($wa-color-deepskyblue, $standart-color-1);
+}
+.wa-btn-deepskyblue:hover {
+    @include btn-theme-hover($wa-color-deepskyblue);
+}
+
+// button khaki
+.wa-btn-khaki {
+    @include btn-theme($wa-color-khaki, $standart-color-1);
+}
+.wa-btn-khaki:hover {
+    @include btn-theme-hover($wa-color-khaki);
+}
+
+// button amethyst
+.wa-btn-amethyst {
+    @include btn-theme($wa-color-amethyst, $standart-color-1);
+}
+.wa-btn-amethyst:hover {
+    @include btn-theme-hover($wa-color-amethyst);
+}
+
+// button periwinkle
+.wa-btn-periwinkle {
+    @include btn-theme($wa-color-periwinkle, $standart-color-2);
+}
+.wa-btn-periwinkle:hover {
+    @include btn-theme-hover($wa-color-periwinkle);
+}
+
+// button tomato
+.wa-btn-tomato {
+    @include btn-theme($wa-color-tomato, $standart-color-1);
+}
+.wa-btn-tomato:hover {
+    @include btn-theme-hover($wa-color-tomato);
+}
+
+// Div default
+.wa-div {
+    background-color: lighten($wa-div-default-main-color, 5%) !important;
+    color: $wa-div-default-text-color !important;
+    padding: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    @include standart-borders(darken($wa-div-default-main-color, $standart-darken), 1);
+    @include border-radius($standart-border-radius);
+}
+
+// Div light
+.wa-div.wa-light {
+    @include wa-div-theme($wa-color-light, $standart-color-2);
+}
+
+// Div dark
+.wa-div.wa-dark {
+    @include wa-div-theme($wa-color-dark, $standart-color-1);
+}
+
+// Div red
+.wa-div.wa-red {
+    @include wa-div-theme($wa-color-red, $standart-color-1);
+}
+
+// Div green
+.wa-div.wa-green {
+    @include wa-div-theme($wa-color-green, $standart-color-1);
+}
+
+// Div blue
+.wa-div.wa-blue {
+    @include wa-div-theme($wa-color-blue, $standart-color-1);
+}
+
+// Div orange
+.wa-div.wa-orange {
+    @include wa-div-theme($wa-color-orange, $standart-color-1);
+}
+
+// Div pink
+.wa-div.wa-pink {
+    @include wa-div-theme($wa-color-pink, $standart-color-1);
+}
+
+// Div purple
+.wa-div.wa-purple {
+    @include wa-div-theme($wa-color-purple, $standart-color-1);
+}
+
+// Div brown
+.wa-div.wa-brown {
+    @include wa-div-theme($wa-color-brown, $standart-color-1);
+}
+
+// Div jade
+.wa-div.wa-jade {
+    @include wa-div-theme($wa-color-jade, $standart-color-1);
+}
+
+// Div yellow
+.wa-div.wa-yellow {
+    @include wa-div-theme($wa-color-yellow, $standart-color-1);
+}
+
+// Div deepskyblue
+.wa-div.wa-deepskyblue {
+    @include wa-div-theme($wa-color-deepskyblue, $standart-color-1);
+}
+
+// Div khaki
+.wa-div.wa-khaki {
+    @include wa-div-theme($wa-color-khaki, $standart-color-1);
+}
+
+// Div amethyst
+.wa-div.wa-amethyst {
+    @include wa-div-theme($wa-color-amethyst, $standart-color-1);
+}
+
+// Div periwinkle
+.wa-div.wa-periwinkle {
+    @include wa-div-theme($wa-color-periwinkle, $standart-color-2);
+}
+
+// Div tomato
+.wa-div.wa-tomato {
+    @include wa-div-theme($wa-color-tomato, $standart-color-1);
+}
+
+// Div-title default
+.wa-div-title {
+    font-size: 17px;
+    padding: 12px;
+    padding-left: 16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    margin-top: 0;
+    @include border-radius($standart-border-radius);
+}
+
+// Div-title light
+.wa-div-title.wa-light {
+    @include wa-div-title-theme($wa-color-light, $standart-color-2);
+}
+
+// Div-title dark
+.wa-div-title.wa-dark {
+    @include wa-div-title-theme($wa-color-dark, $standart-color-1);
+}
+
+// Div-title red
+.wa-div-title.wa-red {
+    @include wa-div-title-theme($wa-color-red, $standart-color-1);
+}
+
+// Div-title green
+.wa-div-title.wa-green {
+    @include wa-div-title-theme($wa-color-green, $standart-color-1);
+}
+
+// Div-title blue
+.wa-div-title.wa-blue {
+    @include wa-div-title-theme($wa-color-blue, $standart-color-1);
+}
+
+// Div-title orange
+.wa-div-title.wa-orange {
+    @include wa-div-title-theme($wa-color-orange, $standart-color-1);
+}
+
+// Div-title pink
+.wa-div-title.wa-pink {
+    @include wa-div-title-theme($wa-color-pink, $standart-color-1);
+}
+
+// Div-title purple
+.wa-div-title.wa-purple {
+    @include wa-div-title-theme($wa-color-purple, $standart-color-1);
+}
+
+// Div-title brown
+.wa-div-title.wa-brown {
+    @include wa-div-title-theme($wa-color-brown, $standart-color-1);
+}
+
+// Div-title jade
+.wa-div-title.wa-jade {
+    @include wa-div-title-theme($wa-color-jade, $standart-color-1);
+}
+
+// Div-title yellow
+.wa-div-title.wa-yellow {
+    @include wa-div-title-theme($wa-color-yellow, $standart-color-1);
+}
+
+// Div-title deepskyblue
+.wa-div-title.wa-deepskyblue {
+    @include wa-div-title-theme($wa-color-deepskyblue, $standart-color-1);
+}
+
+// Div-title khaki
+.wa-div-title.wa-khaki {
+    @include wa-div-title-theme($wa-color-khaki, $standart-color-1);
+}
+
+// Div-title amethyst
+.wa-div-title.wa-amethyst {
+    @include wa-div-title-theme($wa-color-amethyst, $standart-color-1);
+}
+
+// Div-title periwinkle
+.wa-div-title.wa-periwinkle {
+    @include wa-div-title-theme($wa-color-periwinkle, $standart-color-2);
+}
+
+// Div-title tomato
+.wa-div-title.wa-tomato {
+    @include wa-div-title-theme($wa-color-tomato, $standart-color-1);
+}
+
+// links
+.wa-links {
+    // default
+    a {
+        background-color: lighten($wa-link-default-main-color, 5%);
+        color: $wa-link-default-text-color;
+        display: block;
+        padding: 8px;
+        padding-left: 12px;
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-bottom: 8px;
+        @include standart-borders(darken($wa-link-default-main-color, $standart-darken));
+        @include border-radius($standart-border-radius);
+    }
+    a:hover, a:active, a.active {
+        background-color: darken($wa-link-default-main-color, $standart-darken-on-hover);
+        @include standart-borders(darken($wa-link-default-main-color, $standart-darken + 15%));
+    }
+    // light
+    a.wa-light {
+        @include wa-link-theme($wa-color-light, $standart-color-2);
+    }
+    a.wa-light:hover, a.wa-light:active, a.wa-light.active {
+        @include wa-link-hover-theme($wa-color-light, $standart-color-2);
+    }
+    // dark
+    a.wa-dark {
+        @include wa-link-theme($wa-color-dark, $standart-color-1);
+    }
+    a.wa-dark:hover, a.wa-dark:active, a.wa-dark.active {
+        @include wa-link-hover-theme($wa-color-dark, $standart-color-1);
+    }
+    // red
+    a.wa-red {
+        @include wa-link-theme($wa-color-red, $standart-color-1);
+    }
+    a.wa-red:hover, a.wa-red:active, a.wa-red.active {
+        @include wa-link-hover-theme($wa-color-red, $standart-color-1);
+    }
+    // green
+    a.wa-green {
+        @include wa-link-theme($wa-color-green, $standart-color-1);
+    }
+    a.wa-green:hover, a.wa-green:active, a.wa-green.active {
+        @include wa-link-hover-theme($wa-color-green, $standart-color-1);
+    }
+    // blue
+    a.wa-blue {
+        @include wa-link-theme($wa-color-blue, $standart-color-1);
+    }
+    a.wa-blue:hover, a.wa-blue:active, a.wa-blue.active {
+        @include wa-link-hover-theme($wa-color-blue, $standart-color-1);
+    }
+    // orange
+    a.wa-orange {
+        @include wa-link-theme($wa-color-orange, $standart-color-1);
+    }
+    a.wa-orange:hover, a.wa-orange:active, a.wa-orange.active {
+        @include wa-link-hover-theme($wa-color-orange, $standart-color-1);
+    }
+    // pink
+    a.wa-pink {
+        @include wa-link-theme($wa-color-pink, $standart-color-1);
+    }
+    a.wa-pink:hover, a.wa-pink:active, a.wa-pink.active {
+        @include wa-link-hover-theme($wa-color-pink, $standart-color-1);
+    }
+    // purple
+    a.wa-purple {
+        @include wa-link-theme($wa-color-purple, $standart-color-1);
+    }
+    a.wa-purple:hover, a.wa-purple:active, a.wa-purple.active {
+        @include wa-link-hover-theme($wa-color-purple, $standart-color-1);
+    }
+    // brown
+    a.wa-brown {
+        @include wa-link-theme($wa-color-brown, $standart-color-1);
+    }
+    a.wa-brown:hover, a.wa-brown:active, a.wa-brown.active {
+        @include wa-link-hover-theme($wa-color-brown, $standart-color-1);
+    }
+    // jade
+    a.wa-jade {
+        @include wa-link-theme($wa-color-jade, $standart-color-1);
+    }
+    a.wa-jade:hover, a.wa-jade:active, a.wa-jade.active {
+        @include wa-link-hover-theme($wa-color-jade, $standart-color-1);
+    }
+    // yellow
+    a.wa-yellow {
+        @include wa-link-theme($wa-color-yellow, $standart-color-1);
+    }
+    a.wa-yellow:hover, a.wa-yellow:active, a.wa-yellow.active {
+        @include wa-link-hover-theme($wa-color-yellow, $standart-color-1);
+    }
+    // deepskyblue
+    a.wa-deepskyblue {
+        @include wa-link-theme($wa-color-deepskyblue, $standart-color-1);
+    }
+    a.wa-deepskyblue:hover, a.wa-deepskyblue:active, a.wa-deepskyblue.active {
+        @include wa-link-hover-theme($wa-color-deepskyblue, $standart-color-1);
+    }
+    // khaki
+    a.wa-khaki {
+        @include wa-link-theme($wa-color-khaki, $standart-color-1);
+    }
+    a.wa-khaki:hover, a.wa-khaki:active, a.wa-khaki.active {
+        @include wa-link-hover-theme($wa-color-khaki, $standart-color-1);
+    }
+    // amethyst
+    a.wa-amethyst {
+        @include wa-link-theme($wa-color-amethyst, $standart-color-1);
+    }
+    a.wa-amethyst:hover, a.wa-amethyst:active, a.wa-amethyst.active {
+        @include wa-link-hover-theme($wa-color-amethyst, $standart-color-1);
+    }
+    // periwinkle
+    a.wa-periwinkle {
+        @include wa-link-theme($wa-color-periwinkle, $standart-color-2);
+    }
+    a.wa-periwinkle:hover, a.wa-periwinkle:active, a.wa-periwinkle.active {
+        @include wa-link-hover-theme($wa-color-periwinkle, $standart-color-2);
+    }
+    // tomato
+    a.wa-tomato {
+        @include wa-link-theme($wa-color-tomato, $standart-color-1);
+    }
+    a.wa-atomato:hover, a.wa-tomato:active, a.wa-tomato.active {
+        @include wa-link-hover-theme($wa-color-tomato, $standart-color-1);
+    }
+}
+
+// Counters
+
+.wa-counter { // default
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 10px;
+    float: right;
+    padding: 2px 4px;
+    color: $wa-counter-color;
+    border: 1px solid $wa-counter-color;
+    @include border-radius($standart-border-radius);
+}
+.wa-counter.wa-light { // light
+    @include counter($wa-color-light);
+}
+.wa-counter.wa-dark { // dark
+    @include counter($wa-color-dark);
+}
+.wa-counter.wa-red { // red
+    @include counter($wa-color-red);
+}
+.wa-counter.wa-green { // green
+    @include counter($wa-color-green);
+}
+.wa-counter.wa-blue { // blue
+    @include counter($wa-color-blue);
+}
+.wa-counter.wa-orange { // orange
+    @include counter($wa-color-orange);
+}
+.wa-counter.wa-pink { // pink
+    @include counter($wa-color-pink);
+}
+.wa-counter.wa-purple { // purple
+    @include counter($wa-color-purple);
+}
+.wa-counter.wa-brown { // brown
+    @include counter($wa-color-brown);
+}
+.wa-counter.wa-jade { // jade
+    @include counter($wa-color-jade);
+}
+.wa-counter.wa-yellow { // yellow
+    @include counter($wa-color-yellow);
+}
+.wa-counter.wa-deepskyblue { // deepskyblue
+    @include counter($wa-color-deepskyblue);
+}
+.wa-counter.wa-khaki { // khaki
+    @include counter($wa-color-khaki);
+}
+.wa-counter.wa-amethyst { // amethyst
+    @include counter($wa-color-amethyst);
+}
+.wa-counter.wa-periwinkle { // periwinkle
+    @include counter($wa-color-periwinkle);
+}
+.wa-counter.wa-tomato { // tomato
+    @include counter($wa-color-tomato);
+}
+
+// Backgrounds
+
+// light
+.wa-bg-light {
+    background-color: $wa-color-light !important;
+}
+.wa-bg-light-lighten {
+    background-color: lighten($wa-color-light, 10%) !important;
+}
+.wa-bg-light-darken {
+    background-color: darken($wa-color-light, 10%) !important;
+}
+.wa-bg-light-hover:hover {
+    background-color: $wa-color-light !important;
+}
+.wa-bg-light-lighten-hover:hover {
+    background-color: lighten($wa-color-light, 10%) !important;
+}
+.wa-bg-light-darken-hover:hover {
+    background-color: darken($wa-color-light, 10%) !important;
+}
+
+// dark
+.wa-bg-dark {
+    background-color: $wa-color-dark !important;
+}
+.wa-bg-dark-lighten {
+    background-color: lighten($wa-color-dark, 10%) !important;
+}
+.wa-bg-dark-darken {
+    background-color: darken($wa-color-dark, 10%) !important;
+}
+.wa-bg-dark-hover:hover {
+    background-color: $wa-color-dark !important;
+}
+.wa-bg-dark-lighten-hover:hover {
+    background-color: lighten($wa-color-dark, 10%) !important;
+}
+.wa-bg-dark-darken-hover:hover {
+    background-color: darken($wa-color-dark, 10%) !important;
+}
+
+// red
+.wa-bg-red {
+    background-color: $wa-color-red !important;
+}
+.wa-bg-red-lighten {
+    background-color: lighten($wa-color-red, 10%) !important;
+}
+.wa-bg-red-darken {
+    background-color: darken($wa-color-red, 10%) !important;
+}
+.wa-bg-red-hover:hover {
+    background-color: $wa-color-red !important;
+}
+.wa-bg-red-lighten-hover:hover {
+    background-color: lighten($wa-color-red, 10%) !important;
+}
+.wa-bg-red-darken-hover:hover {
+    background-color: darken($wa-color-red, 10%) !important;
+}
+
+// green
+.wa-bg-green {
+    background-color: $wa-color-green !important;
+}
+.wa-bg-green-lighten {
+    background-color: lighten($wa-color-green, 10%) !important;
+}
+.wa-bg-green-darken {
+    background-color: darken($wa-color-green, 10%) !important;
+}
+.wa-bg-green-hover:hover {
+    background-color: $wa-color-green !important;
+}
+.wa-bg-green-lighten-hover:hover {
+    background-color: lighten($wa-color-green, 10%) !important;
+}
+.wa-bg-green-darken-hover:hover {
+    background-color: darken($wa-color-green, 10%) !important;
+}
+
+// blue
+.wa-bg-blue {
+    background-color: $wa-color-blue !important;
+}
+.wa-bg-blue-lighten {
+    background-color: lighten($wa-color-blue, 10%) !important;
+}
+.wa-bg-blue-darken {
+    background-color: darken($wa-color-blue, 10%) !important;
+}
+.wa-bg-blue-hover:hover {
+    background-color: $wa-color-blue !important;
+}
+.wa-bg-blue-lighten-hover:hover {
+    background-color: lighten($wa-color-blue, 10%) !important;
+}
+.wa-bg-blue-darken-hover:hover {
+    background-color: darken($wa-color-blue, 10%) !important;
+}
+
+// orange
+.wa-bg-orange {
+    background-color: $wa-color-orange !important;
+}
+.wa-bg-orange-lighten {
+    background-color: lighten($wa-color-orange, 10%) !important;
+}
+.wa-bg-orange-darken {
+    background-color: darken($wa-color-orange, 10%) !important;
+}
+.wa-bg-orange-hover:hover {
+    background-color: $wa-color-orange !important;
+}
+.wa-bg-orange-lighten-hover:hover {
+    background-color: lighten($wa-color-orange, 10%) !important;
+}
+.wa-bg-orange-darken-hover:hover {
+    background-color: darken($wa-color-orange, 10%) !important;
+}
+
+// pink
+.wa-bg-pink {
+    background-color: $wa-color-pink !important;
+}
+.wa-bg-pink-lighten {
+    background-color: lighten($wa-color-pink, 10%) !important;
+}
+.wa-bg-pink-darken {
+    background-color: darken($wa-color-pink, 10%) !important;
+}
+.wa-bg-pink-hover:hover {
+    background-color: $wa-color-pink !important;
+}
+.wa-bg-pink-lighten-hover:hover {
+    background-color: lighten($wa-color-pink, 10%) !important;
+}
+.wa-bg-pink-darken-hover:hover {
+    background-color: darken($wa-color-pink, 10%) !important;
+}
+
+// purple
+.wa-bg-purple {
+    background-color: $wa-color-purple !important;
+}
+.wa-bg-purple-lighten {
+    background-color: lighten($wa-color-purple, 10%) !important;
+}
+.wa-bg-purple-darken {
+    background-color: darken($wa-color-purple, 10%) !important;
+}
+.wa-bg-purple-hover:hover {
+    background-color: $wa-color-purple !important;
+}
+.wa-bg-purple-lighten-hover:hover {
+    background-color: lighten($wa-color-purple, 10%) !important;
+}
+.wa-bg-purple-darken-hover:hover {
+    background-color: darken($wa-color-purple, 10%) !important;
+}
+
+// brown
+.wa-bg-brown {
+    background-color: $wa-color-brown !important;
+}
+.wa-bg-brown-lighten {
+    background-color: lighten($wa-color-brown, 10%) !important;
+}
+.wa-bg-brown-darken {
+    background-color: darken($wa-color-brown, 10%) !important;
+}
+.wa-bg-brown-hover:hover {
+    background-color: $wa-color-brown !important;
+}
+.wa-bg-brown-lighten-hover:hover {
+    background-color: lighten($wa-color-brown, 10%) !important;
+}
+.wa-bg-brown-darken-hover:hover {
+    background-color: darken($wa-color-brown, 10%) !important;
+}
+
+// jade
+.wa-bg-jade {
+    background-color: $wa-color-jade !important;
+}
+.wa-bg-jade-lighten {
+    background-color: lighten($wa-color-jade, 10%) !important;
+}
+.wa-bg-jade-darken {
+    background-color: darken($wa-color-jade, 10%) !important;
+}
+.wa-bg-jade-hover:hover {
+    background-color: $wa-color-jade !important;
+}
+.wa-bg-jade-lighten-hover:hover {
+    background-color: lighten($wa-color-jade, 10%) !important;
+}
+.wa-bg-jade-darken-hover:hover {
+    background-color: darken($wa-color-jade, 10%) !important;
+}
+
+// yellow
+.wa-bg-yellow {
+    background-color: $wa-color-yellow !important;
+}
+.wa-bg-yellow-lighten {
+    background-color: lighten($wa-color-yellow, 10%) !important;
+}
+.wa-bg-yellow-darken {
+    background-color: darken($wa-color-yellow, 10%) !important;
+}
+.wa-bg-yellow-hover:hover {
+    background-color: $wa-color-yellow !important;
+}
+.wa-bg-yellow-lighten-hover:hover {
+    background-color: lighten($wa-color-yellow, 10%) !important;
+}
+.wa-bg-yellow-darken-hover:hover {
+    background-color: darken($wa-color-yellow, 10%) !important;
+}
+
+// deepskyblue
+.wa-bg-deepskyblue {
+    background-color: $wa-color-deepskyblue !important;
+}
+.wa-bg-deepskyblue-lighten {
+    background-color: lighten($wa-color-deepskyblue, 10%) !important;
+}
+.wa-bg-deepskyblue-darken {
+    background-color: darken($wa-color-deepskyblue, 10%) !important;
+}
+.wa-bg-deepskyblue-hover:hover {
+    background-color: $wa-color-deepskyblue !important;
+}
+.wa-bg-deepskyblue-lighten-hover:hover {
+    background-color: lighten($wa-color-deepskyblue, 10%) !important;
+}
+.wa-bg-deepskyblue-darken-hover:hover {
+    background-color: darken($wa-color-deepskyblue, 10%) !important;
+}
+
+// khaki
+.wa-bg-khaki {
+    background-color: $wa-color-khaki !important;
+}
+.wa-bg-khaki-lighten {
+    background-color: lighten($wa-color-khaki, 10%) !important;
+}
+.wa-bg-khaki-darken {
+    background-color: darken($wa-color-khaki, 10%) !important;
+}
+.wa-bg-khaki-hover:hover {
+    background-color: $wa-color-khaki !important;
+}
+.wa-bg-khaki-lighten-hover:hover {
+    background-color: lighten($wa-color-khaki, 10%) !important;
+}
+.wa-bg-khaki-darken-hover:hover {
+    background-color: darken($wa-color-khaki, 10%) !important;
+}
+
+// amethyst
+.wa-bg-amethyst {
+    background-color: $wa-color-amethyst !important;
+}
+.wa-bg-amethyst-lighten {
+    background-color: lighten($wa-color-amethyst, 10%) !important;
+}
+.wa-bg-amethyst-darken {
+    background-color: darken($wa-color-amethyst, 10%) !important;
+}
+.wa-bg-amethyst-hover:hover {
+    background-color: $wa-color-amethyst !important;
+}
+.wa-bg-amethyst-lighten-hover:hover {
+    background-color: lighten($wa-color-amethyst, 10%) !important;
+}
+.wa-bg-amethyst-darken-hover:hover {
+    background-color: darken($wa-color-amethyst, 10%) !important;
+}
+
+// periwinkle
+.wa-bg-periwinkle {
+    background-color: $wa-color-periwinkle !important;
+}
+.wa-bg-periwinkle-lighten {
+    background-color: lighten($wa-color-periwinkle, 10%) !important;
+}
+.wa-bg-periwinkle-darken {
+    background-color: darken($wa-color-periwinkle, 10%) !important;
+}
+.wa-bg-periwinkle-hover:hover {
+    background-color: $wa-color-periwinkle !important;
+}
+.wa-bg-periwinkle-lighten-hover:hover {
+    background-color: lighten($wa-color-periwinkle, 10%) !important;
+}
+.wa-bg-periwinkle-darken-hover:hover {
+    background-color: darken($wa-color-periwinkle, 10%) !important;
+}
+
+// tomato
+.wa-bg-tomato {
+    background-color: $wa-color-tomato !important;
+}
+.wa-bg-tomato-lighten {
+    background-color: lighten($wa-color-tomato, 10%) !important;
+}
+.wa-bg-tomato-darken {
+    background-color: darken($wa-color-tomato, 10%) !important;
+}
+.wa-bg-tomato-hover:hover {
+    background-color: $wa-color-tomato !important;
+}
+.wa-bg-tomato-lighten-hover:hover {
+    background-color: lighten($wa-color-tomato, 10%) !important;
+}
+.wa-bg-tomato-darken-hover:hover {
+    background-color: darken($wa-color-tomato, 10%) !important;
+}
+
+// Text colors
+
+// light
+.wa-txt-light {
+    color: $wa-color-light !important;
+}
+.wa-txt-light-lighten {
+    color: lighten($wa-color-light, 10%) !important;
+}
+.wa-txt-light-darken {
+    color: darken($wa-color-light, 10%) !important;
+}
+.wa-txt-light-hover:hover {
+    color: $wa-color-light !important;
+}
+.wa-txt-light-lighten-hover:hover {
+    color: lighten($wa-color-light, 10%) !important;
+}
+.wa-txt-light-darken-hover:hover {
+    color: darken($wa-color-light, 10%) !important;
+}
+
+// dark
+.wa-txt-dark {
+    color: $wa-color-dark !important;
+}
+.wa-txt-dark-lighten {
+    color: lighten($wa-color-dark, 10%) !important;
+}
+.wa-txt-dark-darken {
+    color: darken($wa-color-dark, 10%) !important;
+}
+.wa-txt-dark-hover:hover {
+    color: $wa-color-dark !important;
+}
+.wa-txt-dark-lighten-hover:hover {
+    color: lighten($wa-color-dark, 10%) !important;
+}
+.wa-txt-dark-darken-hover:hover {
+    color: darken($wa-color-dark, 10%) !important;
+}
+
+// red
+.wa-txt-red {
+    color: $wa-color-red !important;
+}
+.wa-txt-red-lighten {
+    color: lighten($wa-color-red, 10%) !important;
+}
+.wa-txt-red-darken {
+    color: darken($wa-color-red, 10%) !important;
+}
+.wa-txt-red-hover:hover {
+    color: $wa-color-red !important;
+}
+.wa-txt-red-lighten-hover:hover {
+    color: lighten($wa-color-red, 10%) !important;
+}
+.wa-txt-red-darken-hover:hover {
+    color: darken($wa-color-red, 10%) !important;
+}
+
+// green
+.wa-txt-green {
+    color: $wa-color-green !important;
+}
+.wa-txt-green-lighten {
+    color: lighten($wa-color-green, 10%) !important;
+}
+.wa-txt-green-darken {
+    color: darken($wa-color-green, 10%) !important;
+}
+.wa-txt-green-hover:hover {
+    color: $wa-color-green !important;
+}
+.wa-txt-green-lighten-hover:hover {
+    color: lighten($wa-color-green, 10%) !important;
+}
+.wa-txt-green-darken-hover:hover {
+    color: darken($wa-color-green, 10%) !important;
+}
+
+// blue
+.wa-txt-blue {
+    color: $wa-color-blue !important;
+}
+.wa-txt-blue-lighten {
+    color: lighten($wa-color-blue, 10%) !important;
+}
+.wa-txt-blue-darken {
+    color: darken($wa-color-blue, 10%) !important;
+}
+.wa-txt-blue-hover:hover {
+    color: $wa-color-blue !important;
+}
+.wa-txt-blue-lighten-hover:hover {
+    color: lighten($wa-color-blue, 10%) !important;
+}
+.wa-txt-blue-darken-hover:hover {
+    color: darken($wa-color-blue, 10%) !important;
+}
+
+// orange
+.wa-txt-orange {
+    color: $wa-color-orange !important;
+}
+.wa-txt-orange-lighten {
+    color: lighten($wa-color-orange, 10%) !important;
+}
+.wa-txt-orange-darken {
+    color: darken($wa-color-orange, 10%) !important;
+}
+.wa-txt-orange-hover:hover {
+    color: $wa-color-orange !important;
+}
+.wa-txt-orange-lighten-hover:hover {
+    color: lighten($wa-color-orange, 10%) !important;
+}
+.wa-txt-orange-darken-hover:hover {
+    color: darken($wa-color-orange, 10%) !important;
+}
+
+// pink
+.wa-txt-pink {
+    color: $wa-color-pink !important;
+}
+.wa-txt-pink-lighten {
+    color: lighten($wa-color-pink, 10%) !important;
+}
+.wa-txt-pink-darken {
+    color: darken($wa-color-pink, 10%) !important;
+}
+.wa-txt-pink-hover:hover {
+    color: $wa-color-pink !important;
+}
+.wa-txt-pink-lighten-hover:hover {
+    color: lighten($wa-color-pink, 10%) !important;
+}
+.wa-txt-pink-darken-hover:hover {
+    color: darken($wa-color-pink, 10%) !important;
+}
+
+// purple
+.wa-txt-purple {
+    color: $wa-color-purple !important;
+}
+.wa-txt-purple-lighten {
+    color: lighten($wa-color-purple, 10%) !important;
+}
+.wa-txt-purple-darken {
+    color: darken($wa-color-purple, 10%) !important;
+}
+.wa-txt-purple-hover:hover {
+    color: $wa-color-purple !important;
+}
+.wa-txt-purple-lighten-hover:hover {
+    color: lighten($wa-color-purple, 10%) !important;
+}
+.wa-txt-purple-darken-hover:hover {
+    color: darken($wa-color-purple, 10%) !important;
+}
+
+// brown
+.wa-txt-brown {
+    color: $wa-color-brown !important;
+}
+.wa-txt-brown-lighten {
+    color: lighten($wa-color-brown, 10%) !important;
+}
+.wa-txt-brown-darken {
+    color: darken($wa-color-brown, 10%) !important;
+}
+.wa-txt-brown-hover:hover {
+    color: $wa-color-brown !important;
+}
+.wa-txt-brown-lighten-hover:hover {
+    color: lighten($wa-color-brown, 10%) !important;
+}
+.wa-txt-brown-darken-hover:hover {
+    color: darken($wa-color-brown, 10%) !important;
+}
+
+// jade
+.wa-txt-jade {
+    color: $wa-color-jade !important;
+}
+.wa-txt-jade-lighten {
+    color: lighten($wa-color-jade, 10%) !important;
+}
+.wa-txt-jade-darken {
+    color: darken($wa-color-jade, 10%) !important;
+}
+.wa-txt-jade-hover:hover {
+    color: $wa-color-jade !important;
+}
+.wa-txt-jade-lighten-hover:hover {
+    color: lighten($wa-color-jade, 10%) !important;
+}
+.wa-txt-jade-darken-hover:hover {
+    color: darken($wa-color-jade, 10%) !important;
+}
+
+// yellow
+.wa-txt-yellow {
+    color: $wa-color-yellow !important;
+}
+.wa-txt-yellow-lighten {
+    color: lighten($wa-color-yellow, 10%) !important;
+}
+.wa-txt-yellow-darken {
+    color: darken($wa-color-yellow, 10%) !important;
+}
+.wa-txt-yellow-hover:hover {
+    color: $wa-color-yellow !important;
+}
+.wa-txt-yellow-lighten-hover:hover {
+    color: lighten($wa-color-yellow, 10%) !important;
+}
+.wa-txt-yellow-darken-hover:hover {
+    color: darken($wa-color-yellow, 10%) !important;
+}
+
+// deepskyblue
+.wa-txt-deepskyblue {
+    color: $wa-color-deepskyblue !important;
+}
+.wa-txt-deepskyblue-lighten {
+    color: lighten($wa-color-deepskyblue, 10%) !important;
+}
+.wa-txt-deepskyblue-darken {
+    color: darken($wa-color-deepskyblue, 10%) !important;
+}
+.wa-txt-deepskyblue-hover:hover {
+    color: $wa-color-deepskyblue !important;
+}
+.wa-txt-deepskyblue-lighten-hover:hover {
+    color: lighten($wa-color-deepskyblue, 10%) !important;
+}
+.wa-txt-deepskyblue-darken-hover:hover {
+    color: darken($wa-color-deepskyblue, 10%) !important;
+}
+
+// khaki
+.wa-txt-khaki {
+    color: $wa-color-khaki !important;
+}
+.wa-txt-khaki-lighten {
+    color: lighten($wa-color-khaki, 10%) !important;
+}
+.wa-txt-khaki-darken {
+    color: darken($wa-color-khaki, 10%) !important;
+}
+.wa-txt-khaki-hover:hover {
+    color: $wa-color-khaki !important;
+}
+.wa-txt-khaki-lighten-hover:hover {
+    color: lighten($wa-color-khaki, 10%) !important;
+}
+.wa-txt-khaki-darken-hover:hover {
+    color: darken($wa-color-khaki, 10%) !important;
+}
+
+// amethyst
+.wa-txt-amethyst {
+    color: $wa-color-amethyst !important;
+}
+.wa-txt-amethyst-lighten {
+    color: lighten($wa-color-amethyst, 10%) !important;
+}
+.wa-txt-amethyst-darken {
+    color: darken($wa-color-amethyst, 10%) !important;
+}
+.wa-txt-amethyst-hover:hover {
+    color: $wa-color-amethyst !important;
+}
+.wa-txt-damethyst-lighten-hover:hover {
+    color: lighten($wa-color-amethyst, 10%) !important;
+}
+.wa-txt-amethyst-darken-hover:hover {
+    color: darken($wa-color-amethyst, 10%) !important;
+}
+
+// periwinkle
+.wa-txt-periwinkle {
+    color: $wa-color-periwinkle !important;
+}
+.wa-txt-periwinkle-lighten {
+    color: lighten($wa-color-periwinkle, 10%) !important;
+}
+.wa-txt-periwinkle-darken {
+    color: darken($wa-color-periwinkle, 10%) !important;
+}
+.wa-txt-periwinkle-hover:hover {
+    color: $wa-color-periwinkle !important;
+}
+.wa-txt-periwinkle-lighten-hover:hover {
+    color: lighten($wa-color-periwinkle, 10%) !important;
+}
+.wa-txt-periwinkle-darken-hover:hover {
+    color: darken($wa-color-periwinkle, 10%) !important;
+}
+
+// tomato
+.wa-txt-tomato {
+    color: $wa-color-tomato !important;
+}
+.wa-txt-tomato-lighten {
+    color: lighten($wa-color-tomato, 10%) !important;
+}
+.wa-txt-tomato-darken {
+    color: darken($wa-color-tomato, 10%) !important;
+}
+.wa-txt-tomato-hover:hover {
+    color: $wa-color-tomato !important;
+}
+.wa-txt-tomato-lighten-hover:hover {
+    color: lighten($wa-color-tomato, 10%) !important;
+}
+.wa-txt-tomato-darken-hover:hover {
+    color: darken($wa-color-tomato, 10%) !important;
+}
+
+// Scrollbar default
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: $wa-default-scrollbar-bg;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $wa-default-scrollbar-color;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: $wa-default-scrollbar-hover-color;
+}
+.wa-no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+}
+
+// Scrollbar light
+.wa-scrollbar-light::-webkit-scrollbar-thumb {
+    background-color: $wa-color-light !important;
+}
+.wa-scrollbar-light::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-light, 10%) !important;
+}
+
+// Scrollbar dark
+.wa-scrollbar-dark::-webkit-scrollbar-thumb {
+    background-color: $wa-color-dark !important;
+}
+.wa-scrollbar-dark::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-dark, 10%) !important;
+}
+
+// Scrollbar red
+.wa-scrollbar-red::-webkit-scrollbar-thumb {
+    background-color: $wa-color-red !important;
+}
+.wa-scrollbar-red::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-red, 10%) !important;
+}
+
+// Scrollbar green
+.wa-scrollbar-green::-webkit-scrollbar-thumb {
+    background-color: $wa-color-green !important;
+}
+.wa-scrollbar-green::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-green, 10%) !important;
+}
+
+// Scrollbar blue
+.wa-scrollbar-blue::-webkit-scrollbar-thumb {
+    background-color: $wa-color-blue !important;
+}
+.wa-scrollbar-blue::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-blue, 10%) !important;
+}
+
+// Scrollbar orange
+.wa-scrollbar-orange::-webkit-scrollbar-thumb {
+    background-color: $wa-color-orange !important;
+}
+.wa-scrollbar-orange::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-orange, 10%) !important;
+}
+
+// Scrollbar pink
+.wa-scrollbar-pink::-webkit-scrollbar-thumb {
+    background-color: $wa-color-pink !important;
+}
+.wa-scrollbar-pink::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-pink, 10%) !important;
+}
+
+// Scrollbar purple
+.wa-scrollbar-purple::-webkit-scrollbar-thumb {
+    background-color: $wa-color-purple !important;
+}
+.wa-scrollbar-purple::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-purple, 10%) !important;
+}
+
+// Scrollbar brown
+.wa-scrollbar-brown::-webkit-scrollbar-thumb {
+    background-color: $wa-color-brown !important;
+}
+.wa-scrollbar-brown::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-brown, 10%) !important;
+}
+
+// Scrollbar jade
+.wa-scrollbar-jade::-webkit-scrollbar-thumb {
+    background-color: $wa-color-jade !important;
+}
+.wa-scrollbar-jade::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-jade, 10%) !important;
+}
+
+// Scrollbar yellow
+.wa-scrollbar-yellow::-webkit-scrollbar-thumb {
+    background-color: $wa-color-yellow !important;
+}
+.wa-scrollbar-yellow::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-yellow, 10%) !important;
+}
+
+// Scrollbar deepskyblue
+.wa-scrollbar-deepskyblue::-webkit-scrollbar-thumb {
+    background-color: $wa-color-deepskyblue !important;
+}
+.wa-scrollbar-deepskyblue::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-deepskyblue, 10%) !important;
+}
+
+// Scrollbar khaki
+.wa-scrollbar-khaki::-webkit-scrollbar-thumb {
+    background-color: $wa-color-khaki !important;
+}
+.wa-scrollbar-khaki::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-khaki, 10%) !important;
+}
+
+// Scrollbar amethyst
+.wa-scrollbar-amethyst::-webkit-scrollbar-thumb {
+    background-color: $wa-color-amethyst !important;
+}
+.wa-scrollbar-amethyst::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-amethyst, 10%) !important;
+}
+
+// Scrollbar periwinkle
+.wa-scrollbar-periwinkle::-webkit-scrollbar-thumb {
+    background-color: $wa-color-periwinkle !important;
+}
+.wa-scrollbar-periwinkle::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-periwinkle, 10%) !important;
+}
+
+// Scrollbar tomato
+.wa-scrollbar-tomato::-webkit-scrollbar-thumb {
+    background-color: $wa-color-tomato !important;
+}
+.wa-scrollbar-tomato::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-color-tomato, 10%) !important;
+}
+
+//////////
+
+img.wa-img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+img.wa-img-rounded {
+    @include border-radius($wa-img-border-radius);
+}
+
+img.wa-img-bordered {
+    box-sizing: border-box;
+    border: $wa-img-border;
+    padding: 6px;
+}
+
+img.wa-img-circle {
+    border-radius: 50%;
+}
+
+a.wa-block-link {
+    display: block;
+}
+
+.wa-d-none {
+    display: none;
+}
+
+.wa-d-block {
+    display: block;
+}
+
+.wa-d-inline {
+    display: inline;
+}
+
+.wa-d-inline-block {
+    display: inline-block;
+}
+
+.wa-d-none-important {
+    display: none !important;
+}
+
+.wa-d-block-important {
+    display: block !important;
+}
+
+.wa-d-inline-important {
+    display: inline !important;
+}
+
+.wa-d-inline-block-important {
+    display: inline-block !important;
+}
+
+.wa-h-100 {
+    height: 100% !important;
+}
+
+.wa-w-100 {
+    width: 100% !important;
+}
+
+.wa-txt-center {
+    text-align: center !important;
+}
+
+.wa-txt-left {
+    text-align: left !important;
+}
+
+.wa-txt-right {
+    text-align: right !important;
+}
+
+.wa-f-left {
+    float: left !important;
+}
+
+.wa-f-right {
+    float: right !important;
+}

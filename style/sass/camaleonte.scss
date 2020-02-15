@@ -1,0 +1,74 @@
+@import 'main/colors'; // цвеета
+@import 'main/fragments'; // фрагменты стилей
+@import 'main/settings'; // настройки
+@import 'main/template'; // шаблон
+
+body.wa-theme-light { // Light Theme
+    @import 'themes/light';
+}
+
+body.wa-theme-dark { // Dark Theme
+    @import 'themes/dark';
+}
+
+body.wa-theme-red { // Red Theme
+    @import 'themes/red';
+}
+
+body.wa-theme-green { // Green Theme
+    @import 'themes/green';
+}
+
+body.wa-theme-blue { // Blue Theme
+    @import 'themes/blue';
+}
+
+body.wa-theme-orange { // Orange Theme
+    @import 'themes/orange';
+}
+
+body.wa-theme-pink { // Pink Theme
+    @import 'themes/pink';
+}
+
+body.wa-theme-purple { // Purple Theme
+    @import 'themes/purple';
+}
+
+body.wa-theme-brown { // Brown Theme
+    @import 'themes/brown';
+}
+
+body.wa-theme-jade { // Jade Theme
+    @import 'themes/jade';
+}
+
+body.wa-theme-yellow { // Yellow Theme
+    @import 'themes/yellow';
+}
+
+body.wa-theme-deepskyblue { // Deepskyblue Theme
+    @import 'themes/deepskyblue';
+}
+
+body.wa-theme-khaki { // Khaki Theme
+    @import 'themes/khaki';
+}
+
+body.wa-theme-amethyst { // Amethyst Theme
+    @import 'themes/amethyst';
+}
+
+body.wa-theme-periwinkle { // Periwinkle Theme
+    @import 'themes/periwinkle';
+}
+
+body.wa-theme-tomato { // Tomato Theme
+    @import 'themes/tomato';
+}
+
+body.wa-night { // Night Mode
+    @import 'main/template-dark';
+    background-color: $wa-body-bg;
+    color: $wa-body-text-color;
+}

@@ -1,0 +1,14 @@
+/* Dark Theme */
+
+@import '../main/colors'; // подключаем набор цветов
+
+$wa-theme-color: $wa-color-dark; // основной цвет темы
+$wa-theme-text-color: $standart-color-1; // цвет текста темы
+
+/* Настройки */
+
+@import '../main/settings-theme';
+
+/* Подключаем стиль */
+
+@import '../main/template-theme';

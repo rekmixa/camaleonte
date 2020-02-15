@@ -1,0 +1,110 @@
+/* Стандартная сетка */
+
+.wa-grid-standart {
+    display: grid;
+    @media screen and (min-width: 1000px) { // Desktop
+        .wa-grid-row-areas {
+            display: grid;
+            grid-auto-columns: 25% 50% 25%;
+            grid-template-areas:
+            "itemA itemB itemC";
+        }
+    }
+    @media screen and (min-width: 766px) and (max-width: 999px) { // Tablet
+        .wa-grid-row-areas {
+            display: grid;
+            grid-auto-columns: 35% 65%;
+            grid-template-areas:
+            "itemA itemB"
+            "itemC itemB"
+            ". itemB";
+        }
+    }
+    @media screen and (max-width: 765px) { // Mobile
+        .wa-grid-row-areas {
+            display: grid;
+            grid-auto-columns: 100%;
+            grid-template-areas:
+            "itemB"
+            "itemA"
+            "itemC";
+        }
+    }
+}
+
+/* Элементы сетки */
+
+.wa-item-a {
+    grid-area: itemA;
+}
+.wa-item-b {
+    grid-area: itemB;
+}
+.wa-item-c {
+    grid-area: itemC;
+}
+
+/* Прочие полезные классы */
+
+@media screen and (min-width: 1000px) { // large
+    .wa-lg-d-none {
+        display: none;
+    }
+    .wa-lg-d-block {
+        display: block;
+    }
+    .wa-lg-d-inline {
+        display: inline;
+    }
+    .wa-lg-d-none-important {
+        display: none !important;
+    }
+    .wa-lg-d-block-important {
+        display: block !important;
+    }
+    .wa-lg-d-inline-important {
+        display: inline !important;
+    }
+}
+
+@media screen and (min-width: 766px) and (max-width: 999px) { // medium
+    .wa-md-d-none {
+        display: none;
+    }
+    .wa-md-d-block {
+        display: block;
+    }
+    .wa-md-d-inline {
+        display: inline;
+    }
+    .wa-md-d-none-important {
+        display: none !important;
+    }
+    .wa-md-d-block-important {
+        display: block !important;
+    }
+    .wa-md-d-inline-important {
+        display: inline !important;
+    }
+}
+
+@media screen and (max-width: 765px) { // small
+    .wa-sm-d-none {
+        display: none;
+    }
+    .wa-sm-d-block {
+        display: block;
+    }
+    .wa-sm-d-inline {
+        display: inline;
+    }
+    .wa-sm-d-none-important {
+        display: none !important;
+    }
+    .wa-sm-d-block-important {
+        display: block !important;
+    }
+    .wa-sm-d-inline-important {
+        display: inline !important;
+    }
+}

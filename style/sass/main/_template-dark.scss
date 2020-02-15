@@ -1,0 +1,74 @@
+@import 'dark';
+
+/* Стили */
+
+a {
+    color: $wa-links-color;
+}
+
+// footer
+
+.wa-footer {
+    background-color: $wa-footer-bg;
+    border-top: $wa-footer-b-top;
+}
+
+// Pagination
+
+.wa-pagination {
+    a, span {
+        color: $wa-pagination-color;
+        border: 1px solid $wa-pagination-color;
+    }
+    span.wa-pg-current {
+        color: darken($wa-pagination-color, 10%);
+        border-color: darken($wa-pagination-color, 10%);
+    }
+}
+
+// Form elements
+input[type=text], input[type=number], input[type=email], input[type=password], textarea, select {
+    background-color: $wa-form-default-main-color;
+    color: $wa-form-default-text-color;
+    border-top: 1px solid darken($wa-form-default-main-color, 10%);
+    border-left: 1px solid darken($wa-form-default-main-color, 10%);
+    border-right: 3px solid darken($wa-form-default-main-color, 10%);
+    border-bottom: 3px solid darken($wa-form-default-main-color, 10%);
+}
+
+// Div default
+.wa-div {
+    @include wa-div-theme($wa-div-default-main-color, $wa-div-default-text-color);
+}
+
+// Div-title default
+.wa-div-title {
+    @include wa-div-title-theme($wa-div-title-default-main-color, $wa-div-title-default-text-color);
+}
+
+// links
+.wa-links {
+    // default
+    a {
+        background-color: lighten($wa-link-default-main-color, 5%);
+        color: $wa-link-default-text-color;
+        @include standart-borders(darken($wa-link-default-main-color, $standart-darken));
+    }
+    a:hover, a:active, a.active {
+        background-color: darken($wa-link-default-main-color, $standart-darken-on-hover);
+        @include standart-borders(darken($wa-link-default-main-color, $standart-darken + 15%));
+    }
+}
+
+// Counters
+
+.wa-counter { // default
+    color: $wa-counter-color;
+    border: 1px solid $wa-counter-color;
+}
+
+//////////
+
+img.wa-img-bordered {
+    border: $wa-img-border;
+}

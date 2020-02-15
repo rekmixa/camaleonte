@@ -1,0 +1,146 @@
+// header
+
+.wa-header {
+    background-color: $wa-header-bg;
+    border-bottom: $wa-header-b-bottom;
+}
+
+.wa-h-logo {
+    a {
+        color: $wa-bar-color;
+    }
+}
+
+.wa-h-link-menu {
+    border: 1px solid $wa-bar-color;
+    a {
+        color: $wa-bar-color;
+    }
+}
+
+// Pagination
+
+.wa-pagination {
+    a, span {
+        color: $wa-pagination-color;
+        border: 1px solid $wa-pagination-color;
+    }
+    span.wa-pg-current {
+        color: darken($wa-pagination-color, 25%);
+        border-color: darken($wa-pagination-color, 10%);
+    }
+}
+
+// Nav-link
+
+.wa-nav-link {
+    a {
+        color: $wa-nav-link-color;
+    }
+}
+
+@media screen and (min-width: 766px) {
+    .wa-nav-link:hover, .wa-nav-link:active, .wa-nav-link.active {
+        background-color: $wa-nav-link-color-hover;
+    }
+}
+
+// dropdown by theme
+.wa-dropdown-content.wa-by-theme {
+    @include dropdown-theme($wa-theme-color, $wa-theme-text-color);
+}
+.wa-dropdown-content.scroll.wa-by-theme::-webkit-scrollbar-track {
+    background-color: darken($wa-theme-color, 5%);
+}
+.wa-dropdown-content.scroll.wa-by-theme::-webkit-scrollbar-thumb {
+    background-color: darken($wa-theme-color, 10%);
+}
+.wa-dropdown-content.scroll.wa-by-theme::-webkit-scrollbar-thumb:hover {
+    background-color: darken($wa-theme-color, 15%);
+}
+
+// The switch - the box around the slider
+.wa-slider:before {
+  background-color: $wa-theme-color;
+}
+
+// button default
+button, input[type=submit], a.wa-btn {
+    background-color: $wa-btn-default-main-color;
+    color: $wa-btn-default-text-color;
+    @include standart-borders(darken($wa-btn-default-main-color, $standart-darken + 5%));
+}
+button:hover, input[type=submit]:hover, a.wa-btn:hover {
+    background-color: darken($wa-btn-default-main-color, $standart-darken-on-hover);
+    @include standart-borders(darken($wa-btn-default-main-color, $standart-darken + 15%));
+}
+
+// Div by theme
+.wa-div.wa-by-theme {
+    @include wa-div-theme($wa-theme-color, $wa-theme-text-color);
+}
+
+// Div-title default
+.wa-div-title {
+    background-color: $wa-div-title-default-main-color;
+    color: $wa-div-title-default-text-color;
+    @include standart-borders(darken($wa-div-title-default-main-color, $standart-darken), 1);
+}
+
+// links
+.wa-links {
+    // by theme
+    a.wa-by-theme {
+        @include wa-link-theme($wa-theme-color, $wa-theme-text-color);
+    }
+}
+
+// Counters
+
+.wa-counter.wa-by-theme { // by theme
+    @include counter($wa-theme-color);
+}
+
+// Backgrounds
+
+// Background by theme
+.wa-bg-by-theme {
+    background-color: $wa-theme-color !important;
+}
+.wa-bg-by-theme-lighten {
+    background-color: lighten($wa-theme-color, 10%) !important;
+}
+.wa-bg-by-theme-darken {
+    background-color: darken($wa-theme-color, 10%) !important;
+}
+.wa-bg-by-theme-hover:hover {
+    background-color: $wa-theme-color !important;
+}
+.wa-bg-by-theme-lighten-hover:hover {
+    background-color: lighten($wa-theme-color, 10%) !important;
+}
+.wa-bg-by-theme-darken-hover:hover {
+    background-color: darken($wa-theme-color, 10%) !important;
+}
+
+// Text colors
+
+// Text color by theme
+.wa-txt-by-theme {
+    color: $wa-theme-color !important;
+}
+.wa-txt-by-theme-lighten {
+    color: lighten($wa-theme-color, 10%) !important;
+}
+.wa-txt-by-theme-darken {
+    color: darken($wa-theme-color, 10%) !important;
+}
+.wa-txt-by-theme-hover:hover {
+    color: $wa-theme-color !important;
+}
+.wa-txt-by-theme-lighten-hover:hover {
+    color: lighten($wa-theme-color, 10%) !important;
+}
+.wa-txt-by-theme-darken-hover:hover {
+    color: darken($wa-theme-color, 10%) !important;
+}
